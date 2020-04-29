@@ -1,5 +1,9 @@
 package com.jocata.journal.dao;
 
-public interface UserDao {
+import com.jocata.journal.entity.User;
 
+public interface UserDao {
+	
+	public User saveUser(User user);
+	public User getUserbyUsername(String username);
 }
