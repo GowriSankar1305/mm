@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.jocata.journal.dao.UserDao;
 import com.jocata.journal.entity.User;
 
-@Service
+@Component
 public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Autowired
@@ -20,7 +20,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		User user = userDao.getUserbyUsername(username);
 		if (user == null)
 			throw new UsernameNotFoundException("User not found with username "+username);
-		return null;
+		return new CustomUserDetails(user);
 	}
 
 }

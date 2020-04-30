@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -18,18 +18,32 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 <title>Login Here</title>
 </head>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Admin</b>LTE</a>
+    <a href="${contextPath }/"><b>Admin</b>LTE</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
-
-    <form action="../../index2.html" method="post">
+    <c:choose>
+    	<c:when test="${error ne null}">
+    		<p class="login-box-msg" style="color: red;">${error }</p>
+    	</c:when>
+    	<c:when test="${logout ne null}">
+    		<p class="login-box-msg" style="color: green;">${logout }</p>
+    	</c:when>
+    	<c:when test="${invalidSession ne null}">
+    		<p class="login-box-msg" style="color: red;">${invalidSession }</p>
+    	</c:when>
+    	<c:when test="${sessionExpired ne null}">
+    		<p class="login-box-msg" style="color: red;">${sessionExpired }</p>
+    	</c:when>
+    </c:choose>
+    
+    <form action="login" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="text" class="form-control" placeholder="username">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -50,10 +64,11 @@
         </div>
         <!-- /.col -->
       </div>
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     </form>
 
     <a href="#">I forgot my password</a><br>
-    <a href="#" class="text-center">Register a new membership</a>
+    <a href="signup" class="text-center">Register a new membership</a>
 
   </div>
   <!-- /.login-box-body -->
@@ -61,11 +76,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery 3 -->
-<script src="<c:url value="/js/jquery.min.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="<c:url value="/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <!-- iCheck -->
-<script src="<c:url value="/js/icheck.min.js"/>"></script>
+<script src="<c:url value="/resources/js/icheck.min.js"/>"></script>
 <script>
   $(function () {
     $('input').iCheck({

@@ -16,12 +16,12 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li>
-          <a href="#" class="dropdown-toggle">
+          <a href="login" class="dropdown-toggle">
             <span class="hidden-xs">LOGIN</span>
             </a>
           </li>
           <li>
-          <a href="#" class="dropdown-toggle">
+          <a href="signup" class="dropdown-toggle">
             <span class="hidden-xs">SIGN-UP</span>
             </a>
           </li>
