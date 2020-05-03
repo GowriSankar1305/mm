@@ -25,5 +25,9 @@ public class Admin {
 	private String hospitalName;
 	@Column(nullable=false)
 	private String hospitalAddress;
-	
+	@Column(nullable=false)
+	private String username;
+	@Column(nullable=false)
+	private String password;
+	private int status;
 }

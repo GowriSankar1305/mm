@@ -1,4 +1,4 @@
-package com.jocata.model.patient;
+package com.jocata.model.admin;
 
 import java.util.Date;
 
@@ -13,37 +13,33 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.jocata.model.admin.Admin;
+import com.jocata.model.doctor.Doctor;
+import com.jocata.model.patient.Patient;
 
 import lombok.Data;
 
-@Data
 @Entity
-public class Patient {
+@Data
+public class OccupiedRoom {
 	
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
-	private long patientId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long occupiedId;
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable=false)
-	private String patientName;
-	@Column(nullable=false)
-	private String mobileNo;
-	private int age;
-	@Column(nullable=false)
-	private String gender;
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="admin_id",nullable=false)
-	private Admin admin;
-	@Column(nullable=false)
-	private String username;
-	@Column(nullable=false)
-	private String password;
-	private int status;
+	private Date enteredDate;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable=false)
 	private Date fromDate;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable=false)
 	private Date toDate;
-	private int noOfDays;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="patient_id",nullable=false)
+	private Patient patient;
+	@Column(nullable=false)
+	private String status;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="doctor_id")
+	private Doctor doctor;
 }

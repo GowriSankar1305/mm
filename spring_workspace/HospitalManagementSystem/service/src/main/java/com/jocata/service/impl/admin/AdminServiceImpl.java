@@ -1,4 +1,4 @@
-package com.jocata.service.admin;
+package com.jocata.service.impl.admin;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.jocata.dao.admin.AdminRepository;
 import com.jocata.model.admin.Admin;
+import com.jocata.service.admin.AdminService;
 
 @Service
 public class AdminServiceImpl implements AdminService {
