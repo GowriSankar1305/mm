@@ -24,7 +24,7 @@ public class Room {
 	private String roomId;
 	private int noOfBeds;
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="room_id",nullable=false)
+	@JoinColumn(name="room_type_id",nullable=false)
 	private RoomType roomType;
 	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="hospital_id",nullable=false)

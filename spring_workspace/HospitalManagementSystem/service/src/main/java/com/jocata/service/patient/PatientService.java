@@ -9,5 +9,5 @@ public interface PatientService {
 	public Patient savePatient(Patient patient);
 	public Patient findPatientById(long id);
 	public List<Patient> getAllPatientsBsdOnAdmin(long adminId);
-	public List<Patient> getAllPatientsBsdOnDoctor(long doctorId);
+	public Patient getPatientByUserName(String username);
 }

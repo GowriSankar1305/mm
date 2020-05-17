@@ -9,4 +9,5 @@ public interface DoctorService {
 	public Doctor saveDoctor(Doctor doctor);
 	public Doctor getDoctorBsdOnId(long id);
 	public List<Doctor> getDoctorsBsdOnAdmin(long adminId);
+	public Doctor getDoctorByUserName(String username);
 }

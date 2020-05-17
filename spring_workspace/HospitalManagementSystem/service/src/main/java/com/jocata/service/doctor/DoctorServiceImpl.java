@@ -33,4 +33,9 @@ public class DoctorServiceImpl implements DoctorService {
 		return doctorRepo.findAll();
 	}
 
+	@Override
+	public Doctor getDoctorByUserName(String username) {
+		return doctorRepo.findByUsername(username);
+	}
+
 }

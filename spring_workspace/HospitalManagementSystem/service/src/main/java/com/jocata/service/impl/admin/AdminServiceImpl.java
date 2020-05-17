@@ -30,4 +30,9 @@ public class AdminServiceImpl implements AdminService {
 		return adminRepo.findAll();
 	}
 
+	@Override
+	public Admin getAdminByUsername(String username) {
+		return adminRepo.findByUsername(username);
+	}
+
 }

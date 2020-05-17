@@ -9,6 +9,6 @@ import com.jocata.model.patient.Patient;
 public interface PatientRepository extends JpaRepository<Patient, Long> {
 	
 	public Patient findByPatientId(long id);
-	public List<Patient> findByDoctorDoctorId(long doctorId);
-	public List<Patient> findByDoctorAdminAdminId(long adminId);
+	public List<Patient> findByAdminAdminId(long adminId);
+	public Patient findByUsername(String username);
 }

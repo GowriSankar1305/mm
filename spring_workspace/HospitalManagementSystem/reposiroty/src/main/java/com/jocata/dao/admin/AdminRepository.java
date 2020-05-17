@@ -6,5 +6,6 @@ import com.jocata.model.admin.Admin;
 
 public interface AdminRepository extends JpaRepository<Admin, Long> {
 	
-	Admin findByAdminId(long id);
+	public Admin findByAdminId(long id);
+	public Admin findByUsername(String username);
 }

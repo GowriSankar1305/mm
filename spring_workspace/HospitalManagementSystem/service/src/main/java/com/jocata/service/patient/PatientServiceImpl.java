@@ -26,12 +26,11 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public List<Patient> getAllPatientsBsdOnAdmin(long adminId) {
-		return patientRepo.findByDoctorAdminAdminId(adminId);
+		return patientRepo.findByAdminAdminId(adminId);
 	}
 
 	@Override
-	public List<Patient> getAllPatientsBsdOnDoctor(long doctorId) {
-		return patientRepo.findByDoctorDoctorId(doctorId);
+	public Patient getPatientByUserName(String username) {
+		return patientRepo.findByUsername(username);
 	}
-
 }
